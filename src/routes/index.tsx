@@ -113,7 +113,7 @@ function Home() {
       <header className="fixed top-0 inset-x-0 z-50 bg-transparent border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3">
-            <img src={logo} alt="M8" className="h-9 w-9" width={36} height={36} />
+            <img src={logo} alt="M8 International Protection Logo" className="h-9 w-9" width={36} height={36} />
             <div className="leading-tight">
               <div className="font-display text-xl text-foreground">M8</div>
               <div className="text-[9px] tracking-[0.34em] uppercase text-muted-foreground">International Protection</div>
