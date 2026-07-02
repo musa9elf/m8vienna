@@ -107,17 +107,70 @@ const services = [
   },
 ];
 
+function AnimatedCounter({ value, suffix = "", duration = 2000 }: { value: number; suffix?: string; duration?: number }) {
+  const [display, setDisplay] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !started.current) {
+            started.current = true;
+            const start = performance.now();
+            const tick = (now: number) => {
+              const p = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - p, 3);
+              setDisplay(Math.round(eased * value));
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          }
+        });
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [value, duration]);
+
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
+  );
+}
+
+function StatValue({ label }: { label: string }) {
+  switch (label) {
+    case "18+":
+      return <AnimatedCounter value={18} suffix="+" />;
+    case "40+":
+      return <AnimatedCounter value={40} suffix="+" />;
+    case "100%":
+      return <AnimatedCounter value={100} suffix="%" />;
+    default:
+      return <span>{label}</span>;
+  }
+}
+
 function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* NAV */}
-      <header className="fixed top-0 inset-x-0 z-50 bg-transparent border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3">
-            <img src={logo} alt="M8 International Protection Logo" className="h-9 w-9" width={36} height={36} />
-            <div className="leading-tight">
-              <div className="font-display text-xl text-foreground">M8</div>
-              <div className="text-[9px] tracking-[0.34em] uppercase text-muted-foreground">International Protection</div>
+      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/85 border-b border-border">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 h-16 sm:h-20 flex items-center justify-between gap-4">
+          <a href="#top" className="flex items-center gap-3 min-w-0" onClick={() => setMenuOpen(false)}>
+            <img src={logo} alt="M8 International Protection Logo" className="h-8 w-8 sm:h-9 sm:w-9 shrink-0" width={36} height={36} />
+            <div className="leading-tight min-w-0">
+              <div className="font-display text-lg sm:text-xl text-foreground">M8</div>
+              <div className="text-[8px] sm:text-[9px] tracking-[0.28em] sm:tracking-[0.34em] uppercase text-muted-foreground truncate">International Protection</div>
             </div>
           </a>
           <nav className="hidden md:flex items-center gap-10 text-xs tracking-[0.24em] uppercase">
@@ -127,15 +180,40 @@ function Home() {
           </nav>
           <a
             href="#kontakt"
-            className="hidden sm:inline-flex items-center gap-2 border border-gold/60 px-5 py-2.5 text-[11px] tracking-[0.28em] uppercase text-gold hover:bg-gold hover:text-primary-foreground transition-colors"
+            className="hidden md:inline-flex items-center gap-2 border border-gold/60 px-5 py-2.5 text-[11px] tracking-[0.28em] uppercase text-gold hover:bg-gold hover:text-primary-foreground transition-colors shrink-0"
           >
             Anfrage
           </a>
+          <button
+            type="button"
+            aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="md:hidden inline-flex items-center justify-center h-10 w-10 text-foreground shrink-0"
+          >
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
+        {menuOpen && (
+          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
+            <nav className="px-5 py-6 flex flex-col gap-5 text-xs tracking-[0.24em] uppercase">
+              <a href="#services" onClick={() => setMenuOpen(false)} className="text-foreground hover:text-gold transition-colors">Leistungen</a>
+              <a href="#philosophie" onClick={() => setMenuOpen(false)} className="text-foreground hover:text-gold transition-colors">Philosophie</a>
+              <a href="#kontakt" onClick={() => setMenuOpen(false)} className="text-foreground hover:text-gold transition-colors">Kontakt</a>
+              <a
+                href="#kontakt"
+                onClick={() => setMenuOpen(false)}
+                className="mt-2 inline-flex items-center justify-center gap-2 border border-gold/60 px-5 py-3 text-[11px] tracking-[0.28em] uppercase text-gold"
+              >
+                Anfrage
+              </a>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative min-h-screen flex items-end">
+      <section id="top" className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] mt-16 sm:mt-20 flex items-end">
         <div className="absolute inset-0">
           <img
             src={heroImg}
@@ -148,9 +226,9 @@ function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent" />
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pb-20 pt-40">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pb-16 sm:pb-20 pt-16 sm:pt-24">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-4 mb-8">
+            <div className="flex items-center gap-4 mb-6 sm:mb-8">
               <span className="h-px w-10 bg-gold" />
               <span className="eyebrow">Seit 2007 · Wien · Weltweit</span>
             </div>
@@ -161,22 +239,22 @@ function Home() {
               <br />
               Niveau.
             </h1>
-            <p className="mt-10 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-8 sm:mt-10 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
               M8 International Protection ist die diskrete Adresse für Personen­schutz,
               Sicherheits­training und Sicherheits­beratung. Für nationale und internationale
               Klienten, die kompromisslose Qualität, Verschwiegenheit und Verlässlichkeit erwarten.
             </p>
-            <div className="mt-12 flex flex-wrap gap-4">
+            <div className="mt-10 sm:mt-12 flex flex-wrap gap-4">
               <a
                 href="#kontakt"
-                className="inline-flex items-center gap-3 bg-gold px-8 py-4 text-xs tracking-[0.3em] uppercase text-primary-foreground hover:bg-gold-soft transition-colors"
+                className="inline-flex items-center gap-3 bg-gold px-6 sm:px-8 py-3.5 sm:py-4 text-[11px] sm:text-xs tracking-[0.3em] uppercase text-primary-foreground hover:bg-gold-soft transition-colors"
               >
                 Vertrauliche Anfrage
                 <ArrowUpRight className="h-4 w-4" />
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center gap-3 border border-border px-8 py-4 text-xs tracking-[0.3em] uppercase text-foreground hover:border-gold hover:text-gold transition-colors"
+                className="inline-flex items-center gap-3 border border-border px-6 sm:px-8 py-3.5 sm:py-4 text-[11px] sm:text-xs tracking-[0.3em] uppercase text-foreground hover:border-gold hover:text-gold transition-colors"
               >
                 Leistungen
               </a>
@@ -185,7 +263,7 @@ function Home() {
         </div>
 
         {/* corner marks */}
-        <div className="absolute top-24 right-6 lg:right-10 z-10 hidden md:flex flex-col items-end gap-2">
+        <div className="absolute top-8 right-6 lg:right-10 z-10 hidden md:flex flex-col items-end gap-2">
           <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">48.2082° N</span>
           <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">16.3738° E</span>
           <span className="mt-2 h-8 w-px bg-gold/50" />
@@ -194,7 +272,7 @@ function Home() {
 
       {/* MARQUEE / STATS */}
       <section className="border-y border-border bg-card/40">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             ["18+", "Jahre Erfahrung"],
             ["40+", "Einsatzländer"],
@@ -202,12 +280,15 @@ function Home() {
             ["24/7", "Einsatzbereitschaft"],
           ].map(([n, l]) => (
             <div key={l} className="flex flex-col">
-              <span className="font-display text-4xl text-gold">{n}</span>
+              <span className="font-display text-4xl text-gold">
+                <StatValue label={n} />
+              </span>
               <span className="mt-2 text-[11px] tracking-[0.28em] uppercase text-muted-foreground">{l}</span>
             </div>
           ))}
         </div>
       </section>
+
 
       {/* PHILOSOPHIE */}
       <section id="philosophie" className="py-32">
