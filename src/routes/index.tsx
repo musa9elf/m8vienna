@@ -11,9 +11,66 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
+      { property: "og:url", content: "https://m8vienna.lovable.app/" },
       {
         property: "og:image",
-        content: "https://www.m8-protection.at/og-hero.jpg",
+        content: "https://m8vienna.lovable.app/og-hero.jpg",
+      },
+    ],
+    links: [{ rel: "canonical", href: "https://m8vienna.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "M8 International Protection",
+          description:
+            "Personenschutz, Sicherheitstraining und Sicherheitsberatung in Wien und weltweit.",
+          url: "https://m8vienna.lovable.app/",
+          telephone: "+43 1 999 88 88",
+          email: "office@m8-protection.at",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Wien",
+            addressCountry: "AT",
+          },
+          areaServed: "Worldwide",
+          foundingDate: "2007",
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Sicherheitsleistungen",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Personenschutz",
+                  description:
+                    "Diskreter Nahschutz, Begleitschutz, Residenz- und Objektschutz.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Sicherheitstraining",
+                  description:
+                    "Executive Protection Kurse, Selbstverteidigung, Fahrsicherheit und Krisentraining.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Sicherheitsberatung",
+                  description:
+                    "Risiko- und Bedrohungsanalyse, Sicherheitskonzepte und Reisesicherheit.",
+                },
+              },
+            ],
+          },
+        }),
       },
     ],
   }),
@@ -56,7 +113,7 @@ function Home() {
       <header className="fixed top-0 inset-x-0 z-50 bg-transparent border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3">
-            <img src={logo} alt="M8" className="h-9 w-9" width={36} height={36} />
+            <img src={logo} alt="M8 International Protection Logo" className="h-9 w-9" width={36} height={36} />
             <div className="leading-tight">
               <div className="font-display text-xl text-foreground">M8</div>
               <div className="text-[9px] tracking-[0.34em] uppercase text-muted-foreground">International Protection</div>
@@ -214,7 +271,7 @@ function Home() {
                     <div className="relative overflow-hidden">
                       <img
                         src={s.image}
-                        alt={s.title}
+                        alt={`${s.title} – M8 International Protection Wien`}
                         loading="lazy"
                         width={1200}
                         height={1200}
@@ -329,7 +386,7 @@ function Home() {
       <footer className="border-t border-border py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="M8" className="h-7 w-7 opacity-80" width={28} height={28} />
+            <img src={logo} alt="M8 International Protection Logo" className="h-7 w-7 opacity-80" width={28} height={28} />
             <div>
               <div className="font-display text-lg leading-none">M8 International Protection</div>
               <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">

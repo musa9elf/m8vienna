@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://m8vienna.lovable.app/sitemap.xml
