@@ -175,7 +175,7 @@ function Home() {
           </a>
           <nav className="hidden md:flex items-center gap-10 text-xs tracking-[0.24em] uppercase">
             <a href="#services" className="text-muted-foreground hover:text-gold transition-colors">Leistungen</a>
-            <a href="#quote" className="text-muted-foreground hover:text-gold transition-colors">Philosophie</a>
+            <a href="#quote" className="text-muted-foreground hover:text-gold transition-colors">Quote</a>
             <a href="#kontakt" className="text-muted-foreground hover:text-gold transition-colors">Kontakt</a>
           </nav>
           <a
