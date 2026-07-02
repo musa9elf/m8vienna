@@ -233,7 +233,7 @@ function Home() {
               <span className="eyebrow">Seit 2007 · Wien · Weltweit</span>
             </div>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-8xl leading-[0.95] text-foreground">
-              M8
+              
               <br />
               <span className="italic text-gold">International</span>
               <br />
