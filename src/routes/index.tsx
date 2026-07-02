@@ -222,8 +222,8 @@ function Home() {
             width={1920}
             height={1280}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/45 via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pb-16 sm:pb-20 pt-16 sm:pt-24">
