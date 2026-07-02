@@ -260,6 +260,25 @@ function Home() {
           </div>
         </div>
 
+
+{/* QUOTE */}
+      <section className="py-32 border-t border-border relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
+          <span className="font-display text-[24rem] leading-none text-gold">M8</span>
+        </div>
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
+          <p className="eyebrow mb-8">— Selbstverständnis</p>
+          <blockquote className="font-display text-3xl md:text-5xl leading-tight text-foreground">
+            „Der beste Einsatz ist jener, den der Klient nie bemerkt –
+            <span className="italic text-gold"> weil alles nach Plan verläuft.</span>“
+          </blockquote>
+          <div className="mt-10 text-xs tracking-[0.32em] uppercase text-muted-foreground">
+            M8 International Protection · Wien
+          </div>
+        </div>
+      </section>
+        
+
         {/* corner marks */}
         <div className="absolute top-8 right-6 lg:right-10 z-10 hidden md:flex flex-col items-end gap-2">
           <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">48.2082° N</span>
@@ -353,22 +372,7 @@ function Home() {
         </div>
       </section>
 
-      {/* QUOTE */}
-      <section className="py-32 border-t border-border relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
-          <span className="font-display text-[24rem] leading-none text-gold">M8</span>
-        </div>
-        <div className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
-          <p className="eyebrow mb-8">— Selbstverständnis</p>
-          <blockquote className="font-display text-3xl md:text-5xl leading-tight text-foreground">
-            „Der beste Einsatz ist jener, den der Klient nie bemerkt –
-            <span className="italic text-gold"> weil alles nach Plan verläuft.</span>“
-          </blockquote>
-          <div className="mt-10 text-xs tracking-[0.32em] uppercase text-muted-foreground">
-            M8 International Protection · Wien
-          </div>
-        </div>
-      </section>
+      
 
       {/* CONTACT */}
       <section id="kontakt" className="py-24 border-t border-border bg-card/30">
