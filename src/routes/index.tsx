@@ -236,10 +236,10 @@ function Home() {
               
               <br />
               <span 
-                className="italic text-gold">International
-              style=[[ textShadow: "0 2px 8 px rgba(0,0,0,0.7)" }}
+                className="italic text-gold">
+              style={{ textShadow: "0 2px 8 px rgba(0,0,0,0.7)" }}
               >
-              inter
+              international
               </span>
               <br />
               Protection
