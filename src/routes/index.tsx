@@ -271,7 +271,7 @@ function Home() {
 
 
       {/* QUOTE */}
-      <section id="quote" className="py-32 border-t border-border relative overflow-hidden">
+      <section id="philosophie" className="py-32 border-t border-border relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
           <span className="font-display text-[24rem] leading-none text-gold">M8</span>
         </div>
