@@ -237,7 +237,7 @@ function Home() {
               <br />
               <span 
                 className="italic text-gold">
-              style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
+              style={{ textShadow: "0 4px 14px rgba(0,0,0,0.8)" }}
               >
               international
               </span>
