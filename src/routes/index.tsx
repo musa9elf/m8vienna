@@ -271,7 +271,7 @@ function Home() {
                     <div className="relative overflow-hidden">
                       <img
                         src={s.image}
-                        alt={s.title}
+                        alt={`${s.title} – M8 International Protection Wien`}
                         loading="lazy"
                         width={1200}
                         height={1200}
