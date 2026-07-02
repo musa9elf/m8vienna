@@ -357,7 +357,7 @@ function Home() {
                         loading="lazy"
                         width={1200}
                         height={1200}
-                        className="w-full aspect-[5/4] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-0"
+                        className="w-full aspect-[5/4] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
                       <div className="absolute top-4 left-4 text-[10px] tracking-[0.3em] uppercase text-gold bg-background/70 backdrop-blur px-3 py-1.5">
