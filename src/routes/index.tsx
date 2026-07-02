@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({
                   "@type": "Service",
                   name: "Personenschutz",
                   description:
-                    "Diskreter Nahschutz, Begleitschutz, Residenz- und Objektschutz.",
+                    "Diskreter Nahschutz, Begleitschutz, Residenz- und Objektschutz, VIP-Objektüberwachung.",
                 },
               },
               {
@@ -240,9 +240,7 @@ function Home() {
               Niveau.
             </h1>
             <p className="mt-8 sm:mt-10 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-              M8 International Protection ist die diskrete Adresse für Personen­schutz,
-              Sicherheits­training und Sicherheits­beratung. Für nationale und internationale
-              Klienten, die kompromisslose Qualität, Verschwiegenheit und Verlässlichkeit erwarten.
+              Mit M8 International Protection sind Sie auf der sicheren Seite!
             </p>
             <div className="mt-10 sm:mt-12 flex flex-wrap gap-4">
               <a
@@ -302,13 +300,12 @@ function Home() {
           <div className="lg:col-span-7 lg:col-start-6 space-y-8 text-muted-foreground text-lg leading-relaxed">
             <p>
               Echte Sicherheit ist unauffällig. Sie beginnt lange vor dem ersten Kontakt und bleibt
-              auch dann bestehen, wenn niemand hinsieht. Unsere Arbeit lebt von akribischer
-              Vorbereitung, klarer Kommunikation und der stillen Kompetenz erfahrener Spezialisten.
+              auch dann bestehen, wenn niemand hinsieht.
             </p>
             <p>
-              Wir arbeiten für Persönlichkeiten, Familien, Unternehmen und Institutionen, die
+              Wir arbeiten für Kunden, die
               Diskretion nicht als Zusatz, sondern als Grundvoraussetzung verstehen. Jeder Auftrag
-              wird individuell geplant – kein Fall gleicht dem anderen.
+              wird individuell geplant.
             </p>
             <div className="pt-6 border-t border-border grid grid-cols-2 gap-8">
               <div>
