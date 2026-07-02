@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Shield, GraduationCap, ClipboardCheck, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Shield, GraduationCap, ClipboardCheck, Phone, Mail, MapPin, ArrowUpRight, Menu, X } from "lucide-react";
 
 import heroImg from "@/assets/hero.jpg";
 import protectionImg from "@/assets/protection.jpg";
