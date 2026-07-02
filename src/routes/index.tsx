@@ -175,7 +175,7 @@ function Home() {
           </a>
           <nav className="hidden md:flex items-center gap-10 text-xs tracking-[0.24em] uppercase">
             <a href="#services" className="text-muted-foreground hover:text-gold transition-colors">Leistungen</a>
-            <a href="#philosophie" className="text-muted-foreground hover:text-gold transition-colors">Philosophie</a>
+            <a href="#quote" className="text-muted-foreground hover:text-gold transition-colors">Philosophie</a>
             <a href="#kontakt" className="text-muted-foreground hover:text-gold transition-colors">Kontakt</a>
           </nav>
           <a
@@ -271,7 +271,7 @@ function Home() {
 
 
       {/* QUOTE */}
-      <section className="py-32 border-t border-border relative overflow-hidden">
+      <section id="quote" className="py-32 border-t border-border relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
           <span className="font-display text-[24rem] leading-none text-gold">M8</span>
         </div>
