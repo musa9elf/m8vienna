@@ -288,68 +288,86 @@ function Home() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="flex items-end justify-between flex-wrap gap-6 mb-20">
-            <div>
-              <p className="eyebrow">— Kompetenzfelder</p>
-              <h2 className="mt-6 font-display text-4xl lg:text-6xl max-w-2xl leading-tight">
-                Drei Disziplinen. Ein Anspruch.
-              </h2>
-            </div>
-            <p className="text-muted-foreground max-w-sm">
-              Unser Kerngeschäft gliedert sich in drei eng verwobene Bereiche – jeder für sich auf
-              höchstem professionellem Niveau.
-            </p>
-          </div>
+<section id="services" className="py-24 border-t border-border">
+  <div className="max-w-7xl mx-auto px-6 lg:px-10">
+    
+    <div className="flex items-end justify-between flex-wrap gap-6 mb-20">
+      <div>
+        <p className="eyebrow">— Kompetenzfelder</p>
+        <h2 className="mt-6 font-display text-4xl lg:text-6xl max-w-2xl leading-tight">
+          Drei Disziplinen. Ein Anspruch.
+        </h2>
+      </div>
 
-          <div className="space-y-24">
-            {services.map((s, i) => {
-              const Icon = s.icon;
-              const reverse = i % 2 === 1;
-              return (
-                <article
-                  key={s.id}
-                  className="grid lg:grid-cols-12 gap-10 items-center group"
-                >
-                  <div className={`lg:col-span-6 ${reverse ? "lg:order-2" : ""}`}>
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={s.image}
-                        alt={`${s.title} – M8 International Protection Wien`}
-                        loading="lazy"
-                        width={1200}
-                        height={1200}
-                        className="w-full aspect-[5/4] object-cover grayscale transition-all duration-700 scale-100 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
-                      <div className="absolute top-4 left-4 text-[10px] tracking-[0.3em] uppercase text-gold bg-background/70 backdrop-blur px-3 py-1.5">
-                        {s.kicker}
-                      </div>
-                    </div>
-                  </div>
-                  <div className={`lg:col-span-5 ${reverse ? "lg:order-1 lg:col-start-2" : "lg:col-start-8"}`}>
-                    <div className="flex items-center gap-4 mb-6">
-                      <span className="font-mono text-xs text-gold">{s.id} /</span>
-                      <Icon className="h-5 w-5 text-gold" strokeWidth={1.25} />
-                    </div>
-                    <h3 className="font-display text-4xl lg:text-5xl mb-6">{s.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed mb-8">{s.text}</p>
-                    <ul className="space-y-3 border-t border-border pt-6">
-                      {s.points.map((p) => (
-                        <li key={p} className="flex items-baseline gap-4 text-sm">
-                          <span className="text-gold text-xs">◆</span>
-                          <span className="text-foreground">{p}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <p className="text-muted-foreground max-w-sm">
+        Unser Kerngeschäft gliedert sich in drei eng verwobene Bereiche – jeder für sich auf
+        höchstem professionellem Niveau.
+      </p>
+    </div>
+
+    {/* GRID START */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      {services.map((s) => {
+        const Icon = s.icon;
+
+        return (
+          <article
+            key={s.id}
+            className="group border border-border rounded-xl overflow-hidden hover:scale-[1.02] transition duration-300 bg-background"
+          >
+            
+            {/* IMAGE */}
+            <div className="relative overflow-hidden">
+              <img
+                src={s.image}
+                alt={`${s.title} – M8 International Protection Wien`}
+                loading="lazy"
+                className="w-full aspect-[5/4] object-cover grayscale group-hover:scale-105 transition duration-700"
+              />
+
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+
+              <div className="absolute top-4 left-4 text-[10px] tracking-[0.3em] uppercase text-gold bg-background/70 backdrop-blur px-3 py-1.5">
+                {s.kicker}
+              </div>
+            </div>
+
+            {/* CONTENT */}
+            <div className="p-6">
+              
+              <div className="flex items-center gap-3 mb-3">
+                <span className="font-mono text-xs text-gold">{s.id} /</span>
+                <Icon className="h-5 w-5 text-gold" strokeWidth={1.25} />
+              </div>
+
+              <h3 className="font-display text-xl mb-3">
+                {s.title}
+              </h3>
+
+              <p className="text-muted-foreground text-sm mb-5 line-clamp-3">
+                {s.text}
+              </p>
+
+              <ul className="space-y-2 border-t border-border pt-4">
+                {s.points.slice(0, 3).map((p) => (
+                  <li key={p} className="flex items-start gap-2 text-sm">
+                    <span className="text-gold">◆</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+
+            </div>
+          </article>
+        );
+      })}
+
+    </div>
+    {/* GRID END */}
+
+  </div>
+</section>
 
 
       {/* MARQUEE / STATS */}
