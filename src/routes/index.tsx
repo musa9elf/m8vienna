@@ -268,41 +268,6 @@ function Home() {
         </div>
       </section>
 
-      
-
-
-      {/* PHILOSOPHIE */}
-      <section id="philosophie" className="py-32">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-4">
-            <p className="eyebrow">— Philosophie</p>
-            <h2 className="mt-6 font-display text-4xl lg:text-5xl leading-tight">
-              Präsenz, die man <span className="italic text-gold">spürt</span>. Sichtbar nur, wenn nötig.
-            </h2>
-          </div>
-          <div className="lg:col-span-7 lg:col-start-6 space-y-8 text-muted-foreground text-lg leading-relaxed">
-            <p>
-              Echte Sicherheit ist unauffällig. Sie beginnt lange vor dem ersten Kontakt und bleibt
-              auch dann bestehen, wenn niemand hinsieht.
-            </p>
-            <p>
-              Wir arbeiten für Kunden, die
-              Diskretion nicht als Zusatz, sondern als Grundvoraussetzung verstehen. Jeder Auftrag
-              wird individuell geplant.
-            </p>
-            <div className="pt-6 border-t border-border grid grid-cols-2 gap-8">
-              <div>
-                <div className="eyebrow mb-2">Werte</div>
-                <p className="text-foreground">Verlässlichkeit · Empathie · Kompetenz · Flexibilität</p>
-              </div>
-              <div>
-                <div className="eyebrow mb-2">Standard</div>
-                <p className="text-foreground">Höchste Vertraulichkeit auf jeder Ebene.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* SERVICES */}
       <section id="services" className="py-24 border-t border-border">
