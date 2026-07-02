@@ -386,7 +386,7 @@ function Home() {
       <footer className="border-t border-border py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="M8" className="h-7 w-7 opacity-80" width={28} height={28} />
+            <img src={logo} alt="M8 International Protection Logo" className="h-7 w-7 opacity-80" width={28} height={28} />
             <div>
               <div className="font-display text-lg leading-none">M8 International Protection</div>
               <div className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
