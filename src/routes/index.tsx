@@ -268,24 +268,7 @@ function Home() {
         </div>
       </section>
 
-      {/* MARQUEE / STATS */}
-      <section className="border-y border-border bg-card/40">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            ["18+", "Jahre Erfahrung"],
-            ["40+", "Einsatzländer"],
-            ["100%", "Verschwiegenheit"],
-            ["24/7", "Einsatzbereitschaft"],
-          ].map(([n, l]) => (
-            <div key={l} className="flex flex-col">
-              <span className="font-display text-4xl text-gold">
-                <StatValue label={n} />
-              </span>
-              <span className="mt-2 text-[11px] tracking-[0.28em] uppercase text-muted-foreground">{l}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      
 
 
       {/* PHILOSOPHIE */}
@@ -382,6 +365,26 @@ function Home() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+
+      {/* MARQUEE / STATS */}
+      <section className="border-y border-border bg-card/40">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[
+            ["18+", "Jahre Erfahrung"],
+            ["40+", "Einsatzländer"],
+            ["100%", "Verschwiegenheit"],
+            ["24/7", "Einsatzbereitschaft"],
+          ].map(([n, l]) => (
+            <div key={l} className="flex flex-col">
+              <span className="font-display text-4xl text-gold">
+                <StatValue label={n} />
+              </span>
+              <span className="mt-2 text-[11px] tracking-[0.28em] uppercase text-muted-foreground">{l}</span>
+            </div>
+          ))}
         </div>
       </section>
 
