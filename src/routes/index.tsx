@@ -235,7 +235,12 @@ function Home() {
             <h1 className="font-display text-5xl sm:text-6xl lg:text-8xl leading-[0.95] text-foreground">
               
               <br />
-              <span className="italic text-gold">International</span>
+              <span 
+                className="italic text-gold">International
+              style=[[ textShadow: "0 2px 8 px rgba(0,0,0,0.7)" }}
+              >
+              inter
+              </span>
               <br />
               Protection
             </h1>
