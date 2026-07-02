@@ -11,9 +11,66 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
+      { property: "og:url", content: "https://m8vienna.lovable.app/" },
       {
         property: "og:image",
-        content: "https://www.m8-protection.at/og-hero.jpg",
+        content: "https://m8vienna.lovable.app/og-hero.jpg",
+      },
+    ],
+    links: [{ rel: "canonical", href: "https://m8vienna.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "M8 International Protection",
+          description:
+            "Personenschutz, Sicherheitstraining und Sicherheitsberatung in Wien und weltweit.",
+          url: "https://m8vienna.lovable.app/",
+          telephone: "+43 1 999 88 88",
+          email: "office@m8-protection.at",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Wien",
+            addressCountry: "AT",
+          },
+          areaServed: "Worldwide",
+          foundingDate: "2007",
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Sicherheitsleistungen",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Personenschutz",
+                  description:
+                    "Diskreter Nahschutz, Begleitschutz, Residenz- und Objektschutz.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Sicherheitstraining",
+                  description:
+                    "Executive Protection Kurse, Selbstverteidigung, Fahrsicherheit und Krisentraining.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Sicherheitsberatung",
+                  description:
+                    "Risiko- und Bedrohungsanalyse, Sicherheitskonzepte und Reisesicherheit.",
+                },
+              },
+            ],
+          },
+        }),
       },
     ],
   }),
