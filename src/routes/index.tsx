@@ -259,9 +259,18 @@ function Home() {
             </div>
           </div>
         </div>
+        
+
+        {/* corner marks */}
+        <div className="absolute top-8 right-6 lg:right-10 z-10 hidden md:flex flex-col items-end gap-2">
+          <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">48.2082° N</span>
+          <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">16.3738° E</span>
+          <span className="mt-2 h-8 w-px bg-gold/50" />
+        </div>
+      </section>
 
 
-{/* QUOTE */}
+      {/* QUOTE */}
       <section className="py-32 border-t border-border relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
           <span className="font-display text-[24rem] leading-none text-gold">M8</span>
@@ -277,16 +286,6 @@ function Home() {
           </div>
         </div>
       </section>
-        
-
-        {/* corner marks */}
-        <div className="absolute top-8 right-6 lg:right-10 z-10 hidden md:flex flex-col items-end gap-2">
-          <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">48.2082° N</span>
-          <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">16.3738° E</span>
-          <span className="mt-2 h-8 w-px bg-gold/50" />
-        </div>
-      </section>
-
 
       {/* SERVICES */}
       <section id="services" className="py-24 border-t border-border">
