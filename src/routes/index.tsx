@@ -53,7 +53,7 @@ function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* NAV */}
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
+      <header className="fixed top-0 inset-x-0 z-50 bg-transparent border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3">
             <img src={logo} alt="M8" className="h-9 w-9" width={36} height={36} />
