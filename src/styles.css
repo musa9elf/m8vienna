@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", "Cormorant", ui-serif, Georgia, serif;
   --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
@@ -40,32 +40,37 @@
 :root {
   --radius: 2px;
 
-  /* Warm off-white paper */
-  --background: oklch(0.98 0.003 90);
-  --foreground: oklch(0.20 0.005 260);
+  /* Deep obsidian black with warm undertone */
+  --background: oklch(0.14 0.005 60);
+  --foreground: oklch(0.95 0.01 80);
 
-  --card: oklch(0.96 0.003 90);
-  --card-foreground: oklch(0.20 0.005 260);
-  --popover: oklch(0.99 0.002 90);
-  --popover-foreground: oklch(0.20 0.005 260);
+  --card: oklch(0.18 0.006 60);
+  --card-foreground: oklch(0.95 0.01 80);
+  --popover: oklch(0.16 0.005 60);
+  --popover-foreground: oklch(0.95 0.01 80);
 
-  /* Muted steel accent (replaces gold) */
-  --gold: oklch(0.35 0.008 260);
-  --gold-soft: oklch(0.28 0.008 260);
+  /* Gold accent */
+  --gold: oklch(0.65 0 0);
+  --gold-soft: oklch(0.55 0 0);
 
-  --primary: oklch(0.22 0.006 260);
-  --primary-foreground: oklch(0.98 0.003 90);
-  --secondary: oklch(0.93 0.004 90);
-  --secondary-foreground: oklch(0.20 0.005 260);
-  --muted: oklch(0.94 0.004 90);
-  --muted-foreground: oklch(0.45 0.008 260);
-  --accent: oklch(0.35 0.008 260);
-  --accent-foreground: oklch(0.98 0.003 90);
-  --destructive: oklch(0.55 0.20 25);
+  --primary: oklch(0.78 0.11 85);
+  --primary-foreground: oklch(0.14 0.005 60);
+  --secondary: oklch(0.22 0.006 60);
+  --secondary-foreground: oklch(0.95 0.01 80);
+  --muted: oklch(0.22 0.006 60);
+  --muted-foreground: oklch(0.65 0.01 80);
+  --accent: oklch(0.78 0.11 85);
+  --accent-foreground: oklch(0.14 0.005 60);
+  --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.20 0.005 260 / 12%);
-  --input: oklch(0.20 0.005 260 / 15%);
-  --ring: oklch(0.35 0.008 260);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.78 0.11 85);
+}
+
+.dark {
+  --background: oklch(0.14 0.005 60);
+  --foreground: oklch(0.95 0.01 80);
 }
 
 @layer base {
@@ -80,23 +85,36 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.02em;
   }
 }
 
 @utility eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--muted-foreground);
+  color: var(--gold);
 }
 
+@utility hairline {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+}
 
 @utility grain {
   position: relative;
