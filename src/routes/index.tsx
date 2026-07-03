@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({
                   "@type": "Service",
                   name: "Personenschutz",
                   description:
-                    "Diskreter Nahschutz, Begleitschutz, Residenz- und Objektschutz, VIP-Objektüberwachung.",
+                    "Diskreter Nahschutz, Begleitschutz, Residenz- und Objektschutz.",
                 },
               },
               {
@@ -175,7 +175,7 @@ function Home() {
           </a>
           <nav className="hidden md:flex items-center gap-10 text-xs tracking-[0.24em] uppercase">
             <a href="#services" className="text-muted-foreground hover:text-gold transition-colors">Leistungen</a>
-            <a href="#quote" className="text-muted-foreground hover:text-gold transition-colors">Philosophie</a>
+            <a href="#philosophie" className="text-muted-foreground hover:text-gold transition-colors">Philosophie</a>
             <a href="#kontakt" className="text-muted-foreground hover:text-gold transition-colors">Kontakt</a>
           </nav>
           <a
@@ -222,8 +222,8 @@ function Home() {
             width={1920}
             height={1280}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/35 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/45 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pb-16 sm:pb-20 pt-16 sm:pt-24">
@@ -233,17 +233,16 @@ function Home() {
               <span className="eyebrow">Seit 2007 · Wien · Weltweit</span>
             </div>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-8xl leading-[0.95] text-foreground">
-              <span
-                className="italic text-gold"
-                style={{ textShadow: "0 4px 14px rgba(0,0,0,0.8)" }}
-              >
-                international
-              </span>
+              Sicherheit
               <br />
-              Protection
+              <span className="italic text-gold">auf höchstem</span>
+              <br />
+              Niveau.
             </h1>
             <p className="mt-8 sm:mt-10 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Mit M8 International Protection sind Sie auf der sicheren Seite!
+              M8 International Protection ist die diskrete Adresse für Personen­schutz,
+              Sicherheits­training und Sicherheits­beratung. Für nationale und internationale
+              Klienten, die kompromisslose Qualität, Verschwiegenheit und Verlässlichkeit erwarten.
             </p>
             <div className="mt-10 sm:mt-12 flex flex-wrap gap-4">
               <a
@@ -262,7 +261,6 @@ function Home() {
             </div>
           </div>
         </div>
-        
 
         {/* corner marks */}
         <div className="absolute top-8 right-6 lg:right-10 z-10 hidden md:flex flex-col items-end gap-2">
@@ -271,107 +269,6 @@ function Home() {
           <span className="mt-2 h-8 w-px bg-gold/50" />
         </div>
       </section>
-
-
-      {/* QUOTE */}
-      <section id="philosophie" className="py-32 border-t border-border relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
-          <span className="font-display text-[24rem] leading-none text-gold">M8</span>
-        </div>
-        <div className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
-          <p className="eyebrow mb-8">— Selbstverständnis</p>
-          <blockquote className="font-display text-3xl md:text-5xl leading-tight text-foreground">
-            „Der beste Einsatz ist jener, den der Klient nie bemerkt –
-            <span className="italic text-gold"> weil alles nach Plan verläuft.</span>“
-          </blockquote>
-          <div className="mt-10 text-xs tracking-[0.32em] uppercase text-muted-foreground">
-            M8 International Protection · Wien
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-<section id="services" className="py-24 border-t border-border">
-  <div className="max-w-7xl mx-auto px-6 lg:px-10">
-    
-    <div className="flex items-end justify-between flex-wrap gap-6 mb-20">
-      <div>
-        <p className="eyebrow">— Kompetenzfelder</p>
-        <h2 className="mt-6 font-display text-4xl lg:text-6xl max-w-2xl leading-tight">
-          Drei Disziplinen. Ein Anspruch.
-        </h2>
-      </div>
-
-      <p className="text-muted-foreground max-w-sm">
-        Unser Kerngeschäft gliedert sich in drei eng verwobene Bereiche – jeder für sich auf
-        höchstem professionellem Niveau.
-      </p>
-    </div>
-
-    {/* GRID START */}
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-      {services.map((s) => {
-        const Icon = s.icon;
-
-        return (
-          <article
-            key={s.id}
-            className="group border border-border rounded-xl overflow-hidden hover:scale-[1.02] transition duration-300 bg-background"
-          >
-            
-            {/* IMAGE */}
-            <div className="relative overflow-hidden">
-              <img
-                src={s.image}
-                alt={`${s.title} – M8 International Protection Wien`}
-                loading="lazy"
-                className="w-full aspect-[5/4] object-cover grayscale group-hover:scale-105 transition duration-700"
-              />
-
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
-
-              <div className="absolute top-4 left-4 text-[10px] tracking-[0.3em] uppercase text-gold bg-background/70 backdrop-blur px-3 py-1.5">
-                {s.kicker}
-              </div>
-            </div>
-
-            {/* CONTENT */}
-            <div className="p-6">
-              
-              <div className="flex items-center gap-3 mb-3">
-                <span className="font-mono text-xs text-gold">{s.id} /</span>
-                <Icon className="h-5 w-5 text-gold" strokeWidth={1.25} />
-              </div>
-
-              <h3 className="font-display text-xl mb-3">
-                {s.title}
-              </h3>
-
-              <p className="text-muted-foreground text-sm mb-5 line-clamp-3">
-                {s.text}
-              </p>
-
-              <ul className="space-y-2 border-t border-border pt-4">
-                {s.points.slice(0, 3).map((p) => (
-                  <li key={p} className="flex items-start gap-2 text-sm">
-                    <span className="text-gold">◆</span>
-                    <span>{p}</span>
-                  </li>
-                ))}
-              </ul>
-
-            </div>
-          </article>
-        );
-      })}
-
-    </div>
-    {/* GRID END */}
-
-  </div>
-</section>
-
 
       {/* MARQUEE / STATS */}
       <section className="border-y border-border bg-card/40">
@@ -392,7 +289,121 @@ function Home() {
         </div>
       </section>
 
-      
+
+      {/* PHILOSOPHIE */}
+      <section id="philosophie" className="py-32">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-16">
+          <div className="lg:col-span-4">
+            <p className="eyebrow">— Philosophie</p>
+            <h2 className="mt-6 font-display text-4xl lg:text-5xl leading-tight">
+              Präsenz, die man <span className="italic text-gold">spürt</span>. Sichtbar nur, wenn nötig.
+            </h2>
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6 space-y-8 text-muted-foreground text-lg leading-relaxed">
+            <p>
+              Echte Sicherheit ist unauffällig. Sie beginnt lange vor dem ersten Kontakt und bleibt
+              auch dann bestehen, wenn niemand hinsieht. Unsere Arbeit lebt von akribischer
+              Vorbereitung, klarer Kommunikation und der stillen Kompetenz erfahrener Spezialisten.
+            </p>
+            <p>
+              Wir arbeiten für Persönlichkeiten, Familien, Unternehmen und Institutionen, die
+              Diskretion nicht als Zusatz, sondern als Grundvoraussetzung verstehen. Jeder Auftrag
+              wird individuell geplant – kein Fall gleicht dem anderen.
+            </p>
+            <div className="pt-6 border-t border-border grid grid-cols-2 gap-8">
+              <div>
+                <div className="eyebrow mb-2">Werte</div>
+                <p className="text-foreground">Verlässlichkeit · Empathie · Kompetenz · Flexibilität</p>
+              </div>
+              <div>
+                <div className="eyebrow mb-2">Standard</div>
+                <p className="text-foreground">Höchste Vertraulichkeit auf jeder Ebene.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section id="services" className="py-24 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="flex items-end justify-between flex-wrap gap-6 mb-20">
+            <div>
+              <p className="eyebrow">— Kompetenzfelder</p>
+              <h2 className="mt-6 font-display text-4xl lg:text-6xl max-w-2xl leading-tight">
+                Drei Disziplinen. Ein Anspruch.
+              </h2>
+            </div>
+            <p className="text-muted-foreground max-w-sm">
+              Unser Kerngeschäft gliedert sich in drei eng verwobene Bereiche – jeder für sich auf
+              höchstem professionellem Niveau.
+            </p>
+          </div>
+
+          <div className="space-y-24">
+            {services.map((s, i) => {
+              const Icon = s.icon;
+              const reverse = i % 2 === 1;
+              return (
+                <article
+                  key={s.id}
+                  className="grid lg:grid-cols-12 gap-10 items-center group"
+                >
+                  <div className={`lg:col-span-6 ${reverse ? "lg:order-2" : ""}`}>
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={s.image}
+                        alt={`${s.title} – M8 International Protection Wien`}
+                        loading="lazy"
+                        width={1200}
+                        height={1200}
+                        className="w-full aspect-[5/4] object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+                      <div className="absolute top-4 left-4 text-[10px] tracking-[0.3em] uppercase text-gold bg-background/70 backdrop-blur px-3 py-1.5">
+                        {s.kicker}
+                      </div>
+                    </div>
+                  </div>
+                  <div className={`lg:col-span-5 ${reverse ? "lg:order-1 lg:col-start-2" : "lg:col-start-8"}`}>
+                    <div className="flex items-center gap-4 mb-6">
+                      <span className="font-mono text-xs text-gold">{s.id} /</span>
+                      <Icon className="h-5 w-5 text-gold" strokeWidth={1.25} />
+                    </div>
+                    <h3 className="font-display text-4xl lg:text-5xl mb-6">{s.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-8">{s.text}</p>
+                    <ul className="space-y-3 border-t border-border pt-6">
+                      {s.points.map((p) => (
+                        <li key={p} className="flex items-baseline gap-4 text-sm">
+                          <span className="text-gold text-xs">◆</span>
+                          <span className="text-foreground">{p}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* QUOTE */}
+      <section className="py-32 border-t border-border relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
+          <span className="font-display text-[24rem] leading-none text-gold">M8</span>
+        </div>
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
+          <p className="eyebrow mb-8">— Selbstverständnis</p>
+          <blockquote className="font-display text-3xl md:text-5xl leading-tight text-foreground">
+            „Der beste Einsatz ist jener, den der Klient nie bemerkt –
+            <span className="italic text-gold"> weil alles nach Plan verläuft.</span>“
+          </blockquote>
+          <div className="mt-10 text-xs tracking-[0.32em] uppercase text-muted-foreground">
+            M8 International Protection · Wien
+          </div>
+        </div>
+      </section>
 
       {/* CONTACT */}
       <section id="kontakt" className="py-24 border-t border-border bg-card/30">
