@@ -233,13 +233,11 @@ function Home() {
               <span className="eyebrow">Seit 2007 · Wien · Weltweit</span>
             </div>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-8xl leading-[0.95] text-foreground">
-              
-              <br />
-              <span 
-                className="italic text-gold">
-              style={{ textShadow: "0 4px 14px rgba(0,0,0,0.8)" }}
+              <span
+                className="italic text-gold"
+                style={{ textShadow: "0 4px 14px rgba(0,0,0,0.8)" }}
               >
-              international
+                international
               </span>
               <br />
               Protection
