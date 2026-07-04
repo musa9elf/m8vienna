@@ -24,7 +24,7 @@ function NotFoundComponent() {
         <div className="mt-8">
           <Link
             to="/"
-            className="inline-flex items-center justify-center border border-gold px-6 py-3 text-xs font-medium tracking-[0.28em] uppercase text-gold transition-colors hover:bg-gold hover:text-primary-foreground"
+            className="inline-flex items-center justify-center border border-foreground px-6 py-3 text-xs font-medium tracking-[0.28em] uppercase text-foreground transition-colors hover:bg-foreground hover:text-primary-foreground"
           >
             Zur Startseite
           </Link>
@@ -55,13 +55,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="border border-gold px-6 py-3 text-xs font-medium tracking-[0.28em] uppercase text-gold transition-colors hover:bg-gold hover:text-primary-foreground"
+            className="border border-foreground px-6 py-3 text-xs font-medium tracking-[0.28em] uppercase text-foreground transition-colors hover:bg-foreground hover:text-primary-foreground"
           >
             Erneut versuchen
           </button>
           <a
             href="/"
-            className="border border-border px-6 py-3 text-xs font-medium tracking-[0.28em] uppercase text-foreground transition-colors hover:border-gold hover:text-gold"
+            className="border border-border px-6 py-3 text-xs font-medium tracking-[0.28em] uppercase text-foreground transition-colors hover:border-foreground hover:text-foreground"
           >
             Startseite
           </a>
@@ -96,12 +96,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter+Tight:wght@300;400;500;600&display=swap",
-      },
     ],
   }),
   shellComponent: RootShell,
