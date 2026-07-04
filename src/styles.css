@@ -1,18 +1,20 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "@fontsource/archivo-black";
+@import "@fontsource/hind";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: "Cormorant Garamond", "Cormorant", ui-serif, Georgia, serif;
-  --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Archivo Black", "Archivo", "Impact", "Arial Black", sans-serif;
+  --font-sans: "Hind", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --radius-sm: 2px;
-  --radius-md: 3px;
-  --radius-lg: 4px;
-  --radius-xl: 6px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -33,44 +35,38 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-gold: var(--gold);
-  --color-gold-soft: var(--gold-soft);
 }
 
 :root {
-  --radius: 2px;
+  --radius: 0px;
 
-  /* Deep obsidian black with warm undertone */
-  --background: oklch(0.14 0.005 60);
-  --foreground: oklch(0.95 0.01 80);
+  /* Paper & Ink - warm off-white background, heavy dark text */
+  --background: #f5f3ee;
+  --foreground: #0d0d0d;
 
-  --card: oklch(0.18 0.006 60);
-  --card-foreground: oklch(0.95 0.01 80);
-  --popover: oklch(0.16 0.005 60);
-  --popover-foreground: oklch(0.95 0.01 80);
+  --card: #e8e4dd;
+  --card-foreground: #0d0d0d;
+  --popover: #f5f3ee;
+  --popover-foreground: #0d0d0d;
 
-  /* Gold accent */
-  --gold: oklch(0.78 0.11 85);
-  --gold-soft: oklch(0.68 0.09 80);
-
-  --primary: oklch(0.78 0.11 85);
-  --primary-foreground: oklch(0.14 0.005 60);
-  --secondary: oklch(0.22 0.006 60);
-  --secondary-foreground: oklch(0.95 0.01 80);
-  --muted: oklch(0.22 0.006 60);
-  --muted-foreground: oklch(0.65 0.01 80);
-  --accent: oklch(0.78 0.11 85);
-  --accent-foreground: oklch(0.14 0.005 60);
+  --primary: #0d0d0d;
+  --primary-foreground: #f5f3ee;
+  --secondary: #e8e4dd;
+  --secondary-foreground: #0d0d0d;
+  --muted: #e8e4dd;
+  --muted-foreground: #2d2d2d;
+  --accent: #2d2d2d;
+  --accent-foreground: #f5f3ee;
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 10%);
-  --ring: oklch(0.78 0.11 85);
+  --border: #0d0d0d;
+  --input: #0d0d0d;
+  --ring: #0d0d0d;
 }
 
 .dark {
-  --background: oklch(0.14 0.005 60);
-  --foreground: oklch(0.95 0.01 80);
+  --background: #0d0d0d;
+  --foreground: #f5f3ee;
 }
 
 @layer base {
@@ -85,22 +81,23 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    font-feature-settings: "ss01", "cv11";
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    line-height: 0.92;
   }
 }
 
 @utility eyebrow {
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--foreground);
 }
 
 @utility hairline {
@@ -111,21 +108,26 @@
     left: 0;
     top: 0;
     width: 2rem;
-    height: 1px;
-    background: var(--gold);
+    height: 2px;
+    background: var(--foreground);
   }
 }
 
-@utility grain {
-  position: relative;
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.04;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    mix-blend-mode: overlay;
-  }
+@utility grid-bg {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 80px 80px;
 }
 
+@utility heavy-border {
+  border: 1px solid var(--border);
+}
+
+@utility display-massive {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 14vw, 12rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
